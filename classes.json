@@ -63,6 +63,14 @@
       "anchor": "bottom centre (16,47)",
       "use": "tall furniture, shelves, wardrobes"
     },
+    "prop2x4": {
+      "w": 32,
+      "h": 64,
+      "frames": 1,
+      "colors": 24,
+      "anchor": "bottom centre (16,63)",
+      "use": "showpiece furniture two tiles wide and four tall, the ledger shelf"
+    },
     "icon": {
       "w": 16,
       "h": 16,

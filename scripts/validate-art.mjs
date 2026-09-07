@@ -29,7 +29,7 @@ for (const file of files) {
   const cls = classes[slot.class];
   if (!cls) { console.log(`FAIL  ${file}\n        - unknown class "${slot.class}"`); bad++; continue; }
 
-  const r = await validate(new Uint8Array(readFileSync(file)), { ...cls, id, masterPalette: MASTER });
+  const r = await validate(new Uint8Array(readFileSync(file)), { ...cls, id, masterPalette: MASTER, bays: slot.bays });
   console.log(summarise(r, file));
   if (!r.ok) bad++;
 }

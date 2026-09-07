@@ -46,7 +46,7 @@ async function check(file) {
   const bytes = await settled(file);
   if (!bytes) return;
 
-  const r = await validate(new Uint8Array(bytes), { ...cls, id, masterPalette: MASTER });
+  const r = await validate(new Uint8Array(bytes), { ...cls, id, masterPalette: MASTER, bays: slot.bays });
   if (r.ok) {
     const cols = r.palette ? D(`  ${r.palette.length}/${cls.colors} colours`) : '';
     console.log(`${time()} ${G('PASS')} ${B(id)}${cols}`);

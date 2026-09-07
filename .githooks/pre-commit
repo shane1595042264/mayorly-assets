@@ -19,7 +19,7 @@ if [ -n "$ART" ]; then
         const fs=await import('fs'); const {classes}=JSON.parse(fs.readFileSync('classes.json','utf8'));
         const id=require('path').basename('$f').replace(/@1x\.png$/,'');
         const slot=JSON.parse(fs.readFileSync('slots/'+id+'.json','utf8'));
-        const r=await validate(new Uint8Array(fs.readFileSync('$f')),{...classes[slot.class],id});
+        const r=await validate(new Uint8Array(fs.readFileSync('$f')),{...classes[slot.class],id,bays:slot.bays});
         process.exit(isUntouched(r)?3:0);
       })" 2>/dev/null; then KEEP="$KEEP $f"
     else

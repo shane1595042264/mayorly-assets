@@ -24,7 +24,7 @@ export async function finish(id) {
   const { classes } = JSON.parse(readFileSync('classes.json', 'utf8'));
   const slot = JSON.parse(readFileSync(`slots/${id}.json`, 'utf8'));
   const master = existsSync('palette/resurrect-64.hex') ? loadPalette(readFileSync('palette/resurrect-64.hex', 'utf8')) : null;
-  const r = await validate(new Uint8Array(readFileSync(file)), { ...classes[slot.class], id, masterPalette: master });
+  const r = await validate(new Uint8Array(readFileSync(file)), { ...classes[slot.class], id, masterPalette: master, bays: slot.bays });
   console.log(summarise(r, file));
   if (!r.ok) { console.error('\nNot closing the issue while it still fails.'); return false; }
 

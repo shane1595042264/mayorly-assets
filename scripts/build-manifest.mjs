@@ -31,7 +31,7 @@ for (const s of slots) {
 
   // Placeholders deliberately break the magenta rule, so they are not validated.
   if (!isPlaceholder) {
-    const r = await validate(new Uint8Array(readFileSync(file)), { ...cls, id: s.id, masterPalette: MASTER });
+    const r = await validate(new Uint8Array(readFileSync(file)), { ...cls, id: s.id, masterPalette: MASTER, bays: s.bays });
     if (!r.ok) {
       if (!isUntouched(r)) broken.push(`${s.id}: ${r.blocking.map(c => c.label).join(', ')}`);
       missing.push(s); continue;

@@ -18,7 +18,7 @@ for (const s of slots) {
   const file = `art/${s.id}@1x.png`;
   let mark = '&#9744;', note = 'not started';
   if (existsSync(file)) {
-    const r = await validate(new Uint8Array(readFileSync(file)), { ...cls, id: s.id });
+    const r = await validate(new Uint8Array(readFileSync(file)), { ...cls, id: s.id, bays: s.bays });
     if (r.ok) { mark = '&#9745;'; note = `${r.palette.length}/${cls.colors} colours`; done++; }
     else if (isUntouched(r)) note = 'canvas ready, empty';
     else note = '**fix:** ' + r.blocking.map(c => c.label.toLowerCase()).join(', ');

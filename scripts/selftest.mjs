@@ -89,6 +89,17 @@ await t('an indexed png with no transparent index warns but passes for opaque ti
     const s = Buffer.from(b); const i = s.indexOf(Buffer.from('tRNS')); const len = s.readUInt32BE(i - 4);
     return new Uint8Array(Buffer.concat([s.subarray(0, i - 4), s.subarray(i + 4 + len + 4)])); })(),
   { ...SPEC, opaque: true }, true);
+const SHELF = { id: 'shelf', w: 32, h: 64, frames: 1, colors: 24, bays: { holds: 'spine', spine: [6, 13], perBay: 3, rects: [[3, 7, 26, 15]] } };
+const wood = () => [150, 108, 108, 255];
+await t('a flat bay passes', await png(32, 64, wood), SHELF, true);
+await t('a hole in a bay is rejected',
+  await png(32, 64, (x, y) => (x === 10 && y === 10) ? [0, 0, 0, 0] : wood()), SHELF, false, 'bays.flat');
+await t('detail inside a bay is rejected',
+  await png(32, 64, (x, y) => (y === 12 && x > 4 && x < 20) ? [x * 9, 40, 40, 255] : wood()), SHELF, false, 'bays.flat');
+await t('a bay too small for its spines is rejected',
+  await png(32, 64, wood), { ...SHELF, bays: { ...SHELF.bays, rects: [[3, 7, 20, 15]] } }, false, 'bays.fit');
+await t('a blank canvas with bays is only blank, not broken',
+  await png(32, 64, () => [0, 0, 0, 0]), SHELF, false, 'content.notBlank');
 await t('a non-png is rejected', new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8, 9]), SPEC, false, 'png.signature');
 
 console.log(`\n${pass} passed, ${fail} failed`);

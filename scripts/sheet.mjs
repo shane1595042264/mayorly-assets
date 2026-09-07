@@ -24,7 +24,7 @@ for (const s of slots) {
   const file = existsSync(real) ? real : existsSync(ph) ? ph : null;
   let state = 'missing', note = 'not started';
   if (existsSync(real)) {
-    const r = await validate(new Uint8Array(readFileSync(real)), { ...cls, id: s.id, masterPalette: MASTER });
+    const r = await validate(new Uint8Array(readFileSync(real)), { ...cls, id: s.id, masterPalette: MASTER, bays: s.bays });
     if (r.ok) { state = 'ok'; note = `${r.palette.length}/${cls.colors} colours`; }
     else if (isUntouched(r)) { state = 'wip'; note = 'empty canvas'; }
     else { state = 'bad'; note = r.blocking.map(c => c.label).join(' · '); }
