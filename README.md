@@ -56,7 +56,7 @@ Aseprite specifics, including the three settings to get right once: **[ASEPRITE.
 ## What to draw
 
 <!-- STATUS:START -->
-**13 of 32 drawn. 3 still block the first playable build.**
+**14 of 32 drawn. 2 still block the first playable build.**
 
 | | slot | canvas | frames | max colours | blocks v0 | state |
 |---|---|---|---|---|---|---|
@@ -69,7 +69,7 @@ Aseprite specifics, including the three settings to get right once: **[ASEPRITE.
 | &#9745; | `icon.tomato` | **16&times;16** | 1 | 12 | **yes** | 5/12 colours |
 | &#9745; | `prop1x1.mailtray` | **16&times;16** | 1 | 20 | **yes** | 4/20 colours |
 | &#9745; | `prop2x2.desk.idle` | **32&times;32** | 1 | 24 | **yes** | 8/24 colours |
-| &#9744; | `prop2x4.bookshelf` | **32&times;64** | 1 | 24 | **yes** | canvas ready, empty |
+| &#9745; | `prop2x4.bookshelf` | **32&times;64** | 1 | 24 | **yes** | 5/24 colours |
 | &#9745; | `tile.floor.wood` | **16&times;16** | 1 | 16 | **yes** | 4/16 colours |
 | &#9745; | `tile.wall.plaster` | **16&times;16** | 1 | 16 | **yes** | 3/16 colours |
 | &#9745; | `ui9.panel.parchment` | **24&times;24** | 1 | 8 | **yes** | 4/8 colours |
