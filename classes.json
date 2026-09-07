@@ -23,12 +23,13 @@
     },
     "char": {
       "w": 64,
-      "h": 64,
+      "h": 128,
       "frames": 16,
       "grid": "4 dirs x 4 frames",
+      "cell": "16x32",
       "colors": 24,
-      "anchor": "feet (8,15) per cell",
-      "use": "player and NPC walk sheets"
+      "anchor": "feet (8,31) per cell",
+      "use": "player and NPC walk sheets, two tiles tall like Stardew"
     },
     "prop1x1": {
       "w": 16,

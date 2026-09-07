@@ -30,11 +30,11 @@ It only bites if you import art carrying a profile. If that ever happens, **Edit
 
 ## Turn the grid on for multi-cell sheets
 
-A `char` slot is **64x64**, but that is not one big character. It is a grid of **sixteen 16x16 cells**: 4 directions down the rows, 4 animation frames across. A `crop` or `tile.anim` slot is a 16x64 strip of four 16x16 frames stacked top to bottom.
+A `char` slot is **64x128**, but that is not one big character. It is a grid of **sixteen 16x32 cells**, each one tile wide and two tall like a Stardew villager: 4 directions down the rows, 4 animation frames across. A `crop` or `tile.anim` slot is a 16x64 strip of four 16x16 frames stacked top to bottom.
 
 You will be guessing at cell boundaries without the grid:
 
-**View &rarr; Grid &rarr; Grid Settings**, set **16 x 16**, then **View &rarr; Show Grid** (`Cmd+'`).
+**View &rarr; Grid &rarr; Grid Settings**, set **16 x 16** for strips or **16 x 32** for a `char` sheet, then **View &rarr; Show Grid** (`Cmd+'`).
 
 `npm run next` prints the cell size for any slot that has one.
 
