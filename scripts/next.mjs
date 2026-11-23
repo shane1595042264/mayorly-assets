@@ -12,10 +12,11 @@ const G = s => `\x1b[32m${s}\x1b[0m`, R = s => `\x1b[31m${s}\x1b[0m`, Y = s => `
 const { classes, state, queue } = await loadQueue();
 
 const n = k => state.filter(x => x.st === k).length;
-const v0left = state.filter(x => x.s.blocks === 'v0' && x.st !== 'done').length;
+const today = state.filter(x => x.s.blocks === 'today');
+const todayLeft = today.filter(x => x.st !== 'done').length;
 console.log(`\n${B('Mayorly art')}   ${G(n('done') + ' done')}  ${Y(n('started') + ' started')}  ` +
   `${n('todo')} todo  ${n('broken') ? R(n('broken') + ' broken') : ''}`);
-console.log(D(`${v0left} of 12 first-playable slots still outstanding\n`));
+console.log(D(`${todayLeft} of today's ${today.length} still to draw\n`));
 
 const broken = state.filter(x => x.st === 'broken');
 if (broken.length) {
@@ -28,13 +29,13 @@ if (broken.length) {
 }
 
 
-if (!queue.length) { console.log(G('Everything is drawn. Tag a release: git tag assets-v1 && git push --tags\n')); process.exit(0); }
+if (!queue.length) { console.log(G('Everything is drawn. In the app: npm run art, then ship.\n')); process.exit(0); }
 
 console.log(B(`Next ${Math.min(want, queue.length)}:`));
-console.log(D('easiest first. a character sheet is 16 drawings that have to line up, so it is not where to begin.\n'));
+console.log(D("today's first, in the order they show most: the pet, the coin, then the icons.\n"));
 for (const { s, st } of queue.slice(0, want)) {
   const c = classes[s.class], d = canvasOf(c);
-  console.log(`${B(s.id)}  ${s.blocks === 'v0' ? R('[blocks first playable]') : D('[v1]')}` +
+  console.log(`${B(s.id)}  ${s.blocks === 'today' ? R('[today]') : D('[later]')}` +
     (st === 'started' ? Y('  [started]') : ''));
   const cell = c.grid ? `  ${D(`= a ${c.grid.replace(' dirs x ', ' x ')} grid of ${c.w / 4}x${c.h / 4} cells`)}` : '';
   console.log(`  ${B(d.w + 'x' + d.h)}${cell}`);

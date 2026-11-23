@@ -12,7 +12,7 @@ const slots = readdirSync('slots').filter(f => f.endsWith('.json'))
   .sort((a, b) => (a.blocks === b.blocks ? a.id.localeCompare(b.id) : a.blocks < b.blocks ? -1 : 1));
 
 const rows = [];
-let done = 0, v0left = 0;
+let done = 0, todayLeft = 0;
 for (const s of slots) {
   const cls = classes[s.class], d = canvasOf(cls);
   const file = `art/${s.id}@1x.png`;
@@ -23,16 +23,16 @@ for (const s of slots) {
     else if (isUntouched(r)) note = 'canvas ready, empty';
     else note = '**fix:** ' + r.blocking.map(c => c.label.toLowerCase()).join(', ');
   }
-  if (s.blocks === 'v0' && mark === '&#9744;') v0left++;
+  if (s.blocks === 'today' && mark === '&#9744;') todayLeft++;
   const frames = cls.frames > 1 ? (cls.strip ? `${cls.frames} stacked` : cls.grid) : '1';
-  rows.push(`| ${mark} | \`${s.id}\` | **${d.w}&times;${d.h}** | ${frames} | ${cls.colors} | ${s.blocks === 'v0' ? '**yes**' : 'no' } | ${note} |`);
+  rows.push(`| ${mark} | \`${s.id}\` | **${d.w}&times;${d.h}** | ${frames} | ${cls.colors} | ${s.blocks === 'today' ? '**today**' : s.blocks} | ${s.use ?? ''} | ${note} |`);
 }
 
 const table = [
-  `**${done} of ${slots.length} drawn. ${v0left} still block the first playable build.**`,
+  `**${done} of ${slots.length} drawn. ${todayLeft} of today's still to draw.**`,
   '',
-  '| | slot | canvas | frames | max colours | blocks v0 | state |',
-  '|---|---|---|---|---|---|---|',
+  '| | slot | canvas | frames | max colours | when | where it shows in the app | state |',
+  '|---|---|---|---|---|---|---|---|',
   ...rows,
 ].join('\n');
 
@@ -47,5 +47,5 @@ if (process.argv.includes('--check')) {
   console.log('README status table is current');
 } else {
   writeFileSync('README.md', next);
-  console.log(`README updated: ${done}/${slots.length} drawn, ${v0left} blocking`);
+  console.log(`README updated: ${done}/${slots.length} drawn, ${todayLeft} of today's to draw`);
 }

@@ -1,0 +1,10 @@
+{
+  "id": "pet.tomato.held",
+  "class": "pet",
+  "status": "open",
+  "blocks": "today",
+  "brief": "Dangling while you drag it: arms up, legs down.",
+  "use": "the pet while you drag it",
+  "submissions": [],
+  "order": 6
+}

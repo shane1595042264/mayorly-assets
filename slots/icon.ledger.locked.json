@@ -1,8 +1,8 @@
 {
   "id": "icon.ledger.locked",
   "class": "icon",
-  "status": "open",
-  "blocks": "v0",
+  "status": "done",
+  "blocks": "app",
   "brief": "A ledger spine like icon.ledger.closed, but this one you wrote by hand and the clerk may never rename, merge or delete it. Add a visible clasp or a wax seal on the spine, and make the leather a touch darker. It must be tellable from the ordinary spine at a glance on the shelf, not just up close. Same size and position as the closed spine so the shelf stays even.",
   "submissions": [],
   "sketch": [
@@ -23,5 +23,6 @@
     "................",
     "................"
   ],
-  "sketchNote": "The closed spine, darker leather, with a clasp poking out the right side. Same size and position as the plain spine so the shelf stays even."
+  "sketchNote": "The closed spine, darker leather, with a clasp poking out the right side. Same size and position as the plain spine so the shelf stays even.",
+  "use": "the spine of a hand-written ledger on the shelf, and its lock on the Shelf tab's cards"
 }

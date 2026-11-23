@@ -1,8 +1,8 @@
 {
   "id": "icon.tomato",
   "class": "icon",
-  "status": "open",
-  "blocks": "v0",
+  "status": "done",
+  "blocks": "app",
   "brief": "The tomato: one completed focus interval at the desk. Sits in the HUD beside the count and on every journal entry that earned some.",
   "submissions": [],
   "sketch": [
@@ -23,5 +23,6 @@
     "................",
     "................"
   ],
-  "sketchNote": "A round tomato with a small stem and leaves on top, highlight top-left, shadow bottom-right."
+  "sketchNote": "A round tomato with a small stem and leaves on top, highlight top-left, shadow bottom-right.",
+  "use": "the pet, the tray and menu bar, the app icon, a tomato beside every count, the pomodoro mode in the Plus menu, the Desk tab on the phone"
 }

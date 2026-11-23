@@ -1,0 +1,10 @@
+{
+  "id": "icon.clerk",
+  "class": "icon",
+  "status": "open",
+  "blocks": "today",
+  "brief": "The clerk's face: the mute records-keeper, spectacles, ink on the cuffs if they fit. Head and shoulders.",
+  "use": "in place of the stock AI sparkle (Capture, Ask, Calendar, Flow, What's New), and at 3x on the clerk's question card",
+  "submissions": [],
+  "order": 9
+}

@@ -1,8 +1,8 @@
 {
   "id": "icon.ledger.open",
   "class": "icon",
-  "status": "open",
-  "blocks": "v0",
+  "status": "done",
+  "blocks": "app",
   "brief": "The same ledger taken down and lying open, seen from above: two pages, a centre gutter, a few lines suggesting writing. Shown when you are reading a category. Roughly 14 px wide and 10 px tall, centred.",
   "submissions": [],
   "sketch": [
@@ -23,5 +23,6 @@
     "................",
     "................"
   ],
-  "sketchNote": "Lying open, seen from above. Two pages with a gutter, a few text lines, the cover showing underneath."
+  "sketchNote": "Lying open, seen from above. Two pages with a gutter, a few text lines, the cover showing underneath.",
+  "use": "the Ledgers tab on the phone while it is open"
 }

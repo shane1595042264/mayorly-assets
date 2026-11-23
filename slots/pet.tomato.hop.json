@@ -1,0 +1,10 @@
+{
+  "id": "pet.tomato.hop",
+  "class": "pet",
+  "status": "open",
+  "blocks": "today",
+  "brief": "The top of the hover hop: stretched up a pixel, a happy face.",
+  "use": "the pet's hop when the pointer reaches it",
+  "submissions": [],
+  "order": 7
+}

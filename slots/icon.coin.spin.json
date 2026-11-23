@@ -1,0 +1,10 @@
+{
+  "id": "icon.coin.spin",
+  "class": "icon.anim",
+  "status": "open",
+  "blocks": "today",
+  "brief": "Your coin turning: front, three quarter, edge, three quarter from behind. Frame 1 is your coin as it is.",
+  "use": "every coin in flight, in and out",
+  "submissions": [],
+  "order": 8
+}

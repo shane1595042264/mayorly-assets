@@ -1,0 +1,10 @@
+{
+  "id": "pet.tomato.rest",
+  "class": "pet",
+  "status": "open",
+  "blocks": "today",
+  "brief": "A breather: a tea cup, a stretch. Calm and pleased, never tired or sad.",
+  "use": "the pet during a rest",
+  "submissions": [],
+  "order": 2
+}

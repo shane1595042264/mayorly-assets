@@ -1,8 +1,9 @@
 {
   "id": "tile.terrain.grass_a",
   "class": "tile",
-  "status": "open",
-  "blocks": "v1",
+  "status": "done",
+  "blocks": "app",
   "brief": "Exterior grass for the farm, the first room you can buy next to the hall. Must tile seamlessly on all four edges. Keep it quiet: it covers most of that screen, and texture that reads as noise at 3x zoom is exhausting.",
-  "submissions": []
+  "submissions": [],
+  "use": "the band along the top of the Leisure tab"
 }

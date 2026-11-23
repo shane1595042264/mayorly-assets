@@ -1,0 +1,9 @@
+{
+  "id": "pet.tomato.gaming",
+  "class": "pet",
+  "status": "done",
+  "blocks": "app",
+  "brief": "Gaming mode: the tomato in a headset.",
+  "use": "the pet in gaming mode",
+  "submissions": []
+}

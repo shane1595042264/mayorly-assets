@@ -1,0 +1,10 @@
+{
+  "id": "glyph.briefcase",
+  "class": "icon",
+  "status": "open",
+  "blocks": "today",
+  "brief": "Your CAR ledger's glyph, a briefcase.",
+  "use": "everywhere CAR shows its glyph",
+  "submissions": [],
+  "order": 15
+}

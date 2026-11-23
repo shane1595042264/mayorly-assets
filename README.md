@@ -1,8 +1,8 @@
 # Mayorly assets
 
-The art library for **Mayorly**, a life OS you walk around in. You are the mayor of a small town. Every task is a journal entry; a silent clerk files it into the right ledger on your shelf; time at your desk earns tokens; tokens buy your leisure, your decorations, and your next room.
+The art library for **Mayorly**, a zero-friction desk for people who want to max out their output: a pet in the corner of the screen, a desk timer, ledgers a mute clerk files into, coins earned at the desk and spent on the couch. The app is [mayorly-app](https://github.com/shane1595042264/mayorly-app).
 
-It starts with one room, the Mayor's Hall. Everything beyond it is content you build here first and the player buys later.
+Since 2026-11-23 there is no town to walk around ([decision](https://github.com/shane1595042264/mayorly-design/blob/main/docs/04-decisions.md)). Art goes only where it replaces something already on screen and says something at a glance: the pet's states, the coin in motion, icons for Mayorly's own things. Every sprite drawn for the town has a place in the app; the table below says where.
 
 Every sprite here is **hand-drawn**. No AI-generated art, ever.
 
@@ -14,10 +14,10 @@ Every sprite here is **hand-drawn**. No AI-generated art, ever.
 
 **One filename: `<slot-id>@1x.png`**
 
-So the closed wooden chest is exactly this path, no other:
+So the pet at rest is exactly this path, no other:
 
 ```
-art/prop1x1.chest.wooden.closed@1x.png
+art/pet.tomato.rest@1x.png
 ```
 
 The name is not decoration. The tooling matches the filename against `slots/<slot-id>.json` to find the spec it should be checked against. A file named `chest.png` validates against nothing and is ignored.
@@ -56,60 +56,49 @@ Aseprite specifics, including the three settings to get right once: **[ASEPRITE.
 ## What to draw
 
 <!-- STATUS:START -->
-**14 of 32 drawn. 2 still block the first playable build.**
+**15 of 34 drawn. 16 of today's still to draw.**
 
-| | slot | canvas | frames | max colours | blocks v0 | state |
-|---|---|---|---|---|---|---|
-| &#9744; | `char.clerk.walk` | **64&times;128** | 4 dirs x 4 frames | 24 | **yes** | not started |
-| &#9744; | `char.player.walk` | **64&times;128** | 4 dirs x 4 frames | 24 | **yes** | not started |
-| &#9745; | `icon.coin` | **16&times;16** | 1 | 12 | **yes** | 6/12 colours |
-| &#9745; | `icon.ledger.closed` | **16&times;16** | 1 | 12 | **yes** | 4/12 colours |
-| &#9745; | `icon.ledger.locked` | **16&times;16** | 1 | 12 | **yes** | 5/12 colours |
-| &#9745; | `icon.ledger.open` | **16&times;16** | 1 | 12 | **yes** | 4/12 colours |
-| &#9745; | `icon.tomato` | **16&times;16** | 1 | 12 | **yes** | 5/12 colours |
-| &#9745; | `prop1x1.mailtray` | **16&times;16** | 1 | 20 | **yes** | 4/20 colours |
-| &#9745; | `prop2x2.desk.idle` | **32&times;32** | 1 | 24 | **yes** | 8/24 colours |
-| &#9745; | `prop2x4.bookshelf` | **32&times;64** | 1 | 24 | **yes** | 5/24 colours |
-| &#9745; | `tile.floor.wood` | **16&times;16** | 1 | 16 | **yes** | 4/16 colours |
-| &#9745; | `tile.wall.plaster` | **16&times;16** | 1 | 16 | **yes** | 3/16 colours |
-| &#9745; | `ui9.panel.parchment` | **24&times;24** | 1 | 8 | **yes** | 4/8 colours |
-| &#9745; | `ui9.panel.wood` | **24&times;24** | 1 | 8 | **yes** | 3/8 colours |
-| &#9744; | `crop.wheat.stages` | **16&times;64** | 4 stacked | 16 | no | not started |
-| &#9744; | `icon.letter` | **16&times;16** | 1 | 12 | no | not started |
-| &#9744; | `icon.stamp` | **16&times;16** | 1 | 12 | no | not started |
-| &#9744; | `prop1x1.deco.lamp` | **16&times;16** | 1 | 20 | no | not started |
-| &#9744; | `prop1x1.deco.plant` | **16&times;16** | 1 | 20 | no | not started |
-| &#9744; | `prop1x1.fence.wood` | **16&times;16** | 1 | 20 | no | not started |
-| &#9744; | `prop1x1.window` | **16&times;16** | 1 | 20 | no | not started |
-| &#9744; | `prop1x2.door` | **16&times;32** | 1 | 20 | no | not started |
-| &#9744; | `prop1x2.tree.oak` | **16&times;32** | 1 | 20 | no | not started |
-| &#9744; | `prop2x2.couch` | **32&times;32** | 1 | 24 | no | not started |
-| &#9744; | `prop2x2.desk.working` | **32&times;32** | 1 | 24 | no | not started |
-| &#9744; | `prop2x2.furniture.oak_table` | **32&times;32** | 1 | 24 | no | not started |
-| &#9744; | `prop2x2.rug` | **32&times;32** | 1 | 24 | no | not started |
-| &#9744; | `tile.anim.water` | **16&times;64** | 4 stacked | 16 | no | not started |
-| &#9745; | `tile.terrain.dirt_path` | **16&times;16** | 1 | 16 | no | 2/16 colours |
-| &#9745; | `tile.terrain.grass_a` | **16&times;16** | 1 | 16 | no | 1/16 colours |
-| &#9744; | `tile.terrain.grass_b` | **16&times;16** | 1 | 16 | no | not started |
-| &#9744; | `tile.terrain.soil_tilled` | **16&times;16** | 1 | 16 | no | not started |
+| | slot | canvas | frames | max colours | when | where it shows in the app | state |
+|---|---|---|---|---|---|---|---|
+| &#9745; | `icon.coin` | **16&times;16** | 1 | 12 | app | every coin: the counter, the flights, the market prices | 6/12 colours |
+| &#9745; | `icon.ledger.closed` | **16&times;16** | 1 | 12 | app | the spines on the shelf in the Shelf tab, the Ledgers tab on the phone | 4/12 colours |
+| &#9745; | `icon.ledger.locked` | **16&times;16** | 1 | 12 | app | the spine of a hand-written ledger on the shelf, and its lock on the Shelf tab's cards | 5/12 colours |
+| &#9745; | `icon.ledger.open` | **16&times;16** | 1 | 12 | app | the Ledgers tab on the phone while it is open | 4/12 colours |
+| &#9745; | `icon.tomato` | **16&times;16** | 1 | 12 | app | the pet, the tray and menu bar, the app icon, a tomato beside every count, the pomodoro mode in the Plus menu, the Desk tab on the phone | 5/12 colours |
+| &#9745; | `pet.tomato.gaming` | **24&times;24** | 1 | 16 | app | the pet in gaming mode | 9/16 colours |
+| &#9745; | `prop1x1.mailtray` | **16&times;16** | 1 | 20 | app | Capture in the Plus menu, and on the desk in the shelf scene while the tray holds entries | 4/20 colours |
+| &#9745; | `prop2x2.desk.idle` | **32&times;32** | 1 | 24 | app | the desk in the shelf scene, and the empty Flow | 8/24 colours |
+| &#9745; | `prop2x4.bookshelf` | **32&times;64** | 1 | 24 | app | the Shelf tab: your ledgers stand on it as spines, up to the nine it holds | 5/24 colours |
+| &#9745; | `tile.floor.wood` | **16&times;16** | 1 | 16 | app | the floor of the shelf scene | 4/16 colours |
+| &#9745; | `tile.terrain.dirt_path` | **16&times;16** | 1 | 16 | app | the path through the Leisure tab's band | 2/16 colours |
+| &#9745; | `tile.terrain.grass_a` | **16&times;16** | 1 | 16 | app | the band along the top of the Leisure tab | 1/16 colours |
+| &#9745; | `tile.wall.plaster` | **16&times;16** | 1 | 16 | app | the wall of the shelf scene | 3/16 colours |
+| &#9745; | `ui9.panel.parchment` | **24&times;24** | 1 | 8 | app | the frame of the clerk's question card | 4/8 colours |
+| &#9745; | `ui9.panel.wood` | **24&times;24** | 1 | 8 | app | the frames of the Keymap and What's New screens | 3/8 colours |
+| &#9744; | `char.clerk.stand` | **16&times;32** | 1 | 24 | later | beside the shelf in the Shelf tab | not started |
+| &#9744; | `font.digits` | **72&times;8** | 1 | 4 | later | the timer, the pet's number, the coin count | not started |
+| &#9744; | `prop2x2.desk.working` | **32&times;32** | 1 | 24 | later | the desk in the shelf scene while a block runs: the lamp lit | not started |
+| &#9744; | `glyph.barbell` | **16&times;16** | 1 | 12 | **today** | everywhere EXE shows its glyph | not started |
+| &#9744; | `glyph.briefcase` | **16&times;16** | 1 | 12 | **today** | everywhere CAR shows its glyph | not started |
+| &#9744; | `glyph.briefcase_metal` | **16&times;16** | 1 | 12 | **today** | everywhere PRO shows its glyph | not started |
+| &#9744; | `icon.clerk` | **16&times;16** | 1 | 12 | **today** | in place of the stock AI sparkle (Capture, Ask, Calendar, Flow, What's New), and at 3x on the clerk's question card | not started |
+| &#9744; | `icon.coin.spin` | **16&times;64** | 4 stacked | 12 | **today** | every coin in flight, in and out | not started |
+| &#9744; | `icon.couch` | **16&times;16** | 1 | 12 | **today** | the Couch tile in the Plus menu, the Leisure tab, the phone's Couch tab | not started |
+| &#9744; | `icon.letter` | **16&times;16** | 1 | 12 | **today** | Capture's prompt, and an unfiled entry in the tray | not started |
+| &#9744; | `icon.market` | **16&times;16** | 1 | 12 | **today** | the Market tab | not started |
+| &#9744; | `icon.stamp` | **16&times;16** | 1 | 12 | **today** | Clear in the Plus menu: the stamp on a finished entry | not started |
+| &#9744; | `pet.tomato.couch` | **24&times;24** | 1 | 16 | **today** | the pet while a couch item runs | not started |
+| &#9744; | `pet.tomato.held` | **24&times;24** | 1 | 16 | **today** | the pet while you drag it | not started |
+| &#9744; | `pet.tomato.hold` | **24&times;24** | 1 | 16 | **today** | the pet while the desk is on hold | not started |
+| &#9744; | `pet.tomato.hop` | **24&times;24** | 1 | 16 | **today** | the pet's hop when the pointer reaches it | not started |
+| &#9744; | `pet.tomato.idle` | **24&times;24** | 1 | 16 | **today** | the pet while the desk is idle | not started |
+| &#9744; | `pet.tomato.rest` | **24&times;24** | 1 | 16 | **today** | the pet during a rest | not started |
+| &#9744; | `pet.tomato.work` | **24&times;48** | 2 stacked | 16 | **today** | the pet while a focus block runs | not started |
 <!-- STATUS:END -->
 
-**The tickable version lives in the issues**, because a checklist in a README renders as boxes but is not clickable. GitHub only makes them work inside issues.
+## The app is not waiting for you
 
-&rarr; **[First playable: the sprites that make the Mayor's Hall](https://github.com/juntaoli-dev/mayorly-assets/issues/40)**
-
-One issue per sprite, with its spec and brief. Close an issue and the tracking checklist ticks itself.
-
-## The game is not waiting for you
-
-```bash
-npm run placeholders   # magenta checkerboards for every undrawn slot
-npm run manifest       # a complete manifest, so the game builds today
-```
-
-Every magenta square in the game is a slot waiting for art. They are magenta on purpose: a plausible grey box looks deliberate and ships by accident. Placeholders are gitignored, and real art always wins over a placeholder.
-
-This means you never have to draw ahead of the code, or code ahead of the drawing.
+Every slot the app shows falls back to what it showed before (the plain tomato, the stock icon) until its PNG exists, so you never draw ahead of the code or code ahead of the drawing. In the app, `npm run art` copies what is in `art/` across, and `npm run art -- --watch` keeps doing it on every save while `localhost:5199/?art` shows each sprite where it lives, at its real scale. The issues, the tracker, `tf done`, placeholders, the manifest and the Release publishing were for outside artists and a game that fetched its art; drawing alone, skip them.
 
 ---
 
@@ -129,7 +118,7 @@ tf help            # everything else
 
 No slot name needed. **`scaffold` is the front door:** it first asks *"did you finish X?"* about anything you drew that passes but is not closed yet. Say **y** and it marks it done and opens the next canvas. Say **n** and it does nothing, so you cannot accidentally move on from unfinished work. Pass a slot id to either command if you want to jump around.
 
-The loop: `scaffold` &rarr; draw &rarr; `watch` says PASS &rarr; commit &rarr; `done`.
+The loop: `tf scaffold <slot>` &rarr; draw &rarr; `watch` says PASS &rarr; look at it in the app's `?art` bench &rarr; next. Commit at the end.
 
 ```
 11:32:47  ....  icon.coin   empty canvas, waiting for you

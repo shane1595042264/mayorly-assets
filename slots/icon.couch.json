@@ -1,0 +1,10 @@
+{
+  "id": "icon.couch",
+  "class": "icon",
+  "status": "open",
+  "blocks": "today",
+  "brief": "A couch, small. Purple is the leisure colour.",
+  "use": "the Couch tile in the Plus menu, the Leisure tab, the phone's Couch tab",
+  "submissions": [],
+  "order": 10
+}

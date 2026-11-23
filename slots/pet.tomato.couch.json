@@ -1,0 +1,10 @@
+{
+  "id": "pet.tomato.couch",
+  "class": "pet",
+  "status": "open",
+  "blocks": "today",
+  "brief": "Couch time: chips, a controller, a purple TV glow. The original spec had the craftsman on the couch with chips and the TV on; this is the tomato's turn.",
+  "use": "the pet while a couch item runs",
+  "submissions": [],
+  "order": 3
+}

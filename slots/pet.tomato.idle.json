@@ -1,0 +1,10 @@
+{
+  "id": "pet.tomato.idle",
+  "class": "pet",
+  "status": "open",
+  "blocks": "today",
+  "brief": "Off duty: dozing, feet up. Never wilting: no dying pet.",
+  "use": "the pet while the desk is idle",
+  "submissions": [],
+  "order": 5
+}

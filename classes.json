@@ -8,28 +8,8 @@
       "frames": 1,
       "colors": 16,
       "anchor": "top left (0,0)",
-      "use": "ground: grass, dirt, stone, path",
+      "use": "the wall and floor of the shelf scene, the grass and path of the leisure band",
       "opaque": true
-    },
-    "tile.anim": {
-      "w": 16,
-      "h": 16,
-      "frames": 4,
-      "strip": true,
-      "colors": 16,
-      "anchor": "top left (0,0)",
-      "use": "water, fire, anything that loops",
-      "opaque": true
-    },
-    "char": {
-      "w": 64,
-      "h": 128,
-      "frames": 16,
-      "grid": "4 dirs x 4 frames",
-      "cell": "16x32",
-      "colors": 24,
-      "anchor": "feet (8,31) per cell",
-      "use": "player and NPC walk sheets, two tiles tall like Stardew"
     },
     "prop1x1": {
       "w": 16,
@@ -37,15 +17,7 @@
       "frames": 1,
       "colors": 20,
       "anchor": "bottom centre (8,15)",
-      "use": "chests, lanterns, small decorations"
-    },
-    "prop1x2": {
-      "w": 16,
-      "h": 32,
-      "frames": 1,
-      "colors": 20,
-      "anchor": "bottom centre (8,31)",
-      "use": "trees, posts, tall thin props"
+      "use": "small things: the mail tray"
     },
     "prop2x2": {
       "w": 32,
@@ -53,15 +25,7 @@
       "frames": 1,
       "colors": 24,
       "anchor": "bottom centre (16,31)",
-      "use": "furniture the craftsman forges"
-    },
-    "prop2x3": {
-      "w": 32,
-      "h": 48,
-      "frames": 1,
-      "colors": 24,
-      "anchor": "bottom centre (16,47)",
-      "use": "tall furniture, shelves, wardrobes"
+      "use": "furniture: the desk in the shelf scene"
     },
     "prop2x4": {
       "w": 32,
@@ -69,7 +33,7 @@
       "frames": 1,
       "colors": 24,
       "anchor": "bottom centre (16,63)",
-      "use": "showpiece furniture two tiles wide and four tall, the ledger shelf"
+      "use": "the ledger shelf in the Shelf tab"
     },
     "icon": {
       "w": 16,
@@ -77,7 +41,7 @@
       "frames": 1,
       "colors": 12,
       "anchor": "centre (8,8)",
-      "use": "inventory and list row glyphs"
+      "use": "icons for Mayorly's own things: ledgers, couch, stamp, clerk, a ledger's glyph"
     },
     "ui9": {
       "w": 24,
@@ -85,16 +49,49 @@
       "frames": 1,
       "colors": 8,
       "anchor": "8px corners",
-      "use": "nine slice panels and frames"
+      "use": "nine slice frames: the clerk's card, the keymap"
     },
-    "crop": {
+    "pet": {
+      "w": 24,
+      "h": 24,
+      "frames": 1,
+      "colors": 16,
+      "anchor": "centre: the 16x16 tomato sits at (4,4)",
+      "use": "one state of the pet, shown at 3x in the corner of the screen"
+    },
+    "pet.anim": {
+      "w": 24,
+      "h": 24,
+      "frames": 2,
+      "strip": true,
+      "colors": 16,
+      "anchor": "centre: the 16x16 tomato sits at (4,4) in each frame",
+      "use": "a looping state of the pet, two frames stacked top to bottom"
+    },
+    "icon.anim": {
       "w": 16,
       "h": 16,
       "frames": 4,
       "strip": true,
-      "colors": 16,
-      "anchor": "bottom centre (8,15)",
-      "use": "4 stage growth from a ticked task"
+      "colors": 12,
+      "anchor": "centre (8,8)",
+      "use": "an icon in motion, four frames stacked top to bottom"
+    },
+    "font": {
+      "w": 72,
+      "h": 8,
+      "frames": 1,
+      "colors": 4,
+      "anchor": "twelve cells of 6x8, left to right: 0123456789:.",
+      "use": "your own numerals for the timer, the pet's number and the coin count"
+    },
+    "char.stand": {
+      "w": 16,
+      "h": 32,
+      "frames": 1,
+      "colors": 24,
+      "anchor": "feet (8,31)",
+      "use": "a character standing still, one tile wide and two tall"
     }
   }
 }

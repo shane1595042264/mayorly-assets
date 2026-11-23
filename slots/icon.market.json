@@ -1,0 +1,10 @@
+{
+  "id": "icon.market",
+  "class": "icon",
+  "status": "open",
+  "blocks": "today",
+  "brief": "A market stall: an awning over a counter.",
+  "use": "the Market tab",
+  "submissions": [],
+  "order": 13
+}

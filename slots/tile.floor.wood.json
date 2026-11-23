@@ -1,8 +1,8 @@
 {
   "id": "tile.floor.wood",
   "class": "tile",
-  "status": "open",
-  "blocks": "v0",
+  "status": "done",
+  "blocks": "app",
   "brief": "Interior floorboards for the Mayor's Hall. Planks run horizontally. Must tile seamlessly on all four edges. This is most of the screen indoors, so keep the grain quiet; boards that read as stripes at 3x zoom get exhausting.",
   "submissions": [],
   "sketch": [
@@ -23,5 +23,6 @@
     "ooooooo#oooooooo",
     "-------#--------"
   ],
-  "sketchNote": "Four planks, four rows each: light edge, two mid rows, shadow edge. The # is the end seam between boards, staggered so the tile repeats without a visible grid."
+  "sketchNote": "Four planks, four rows each: light edge, two mid rows, shadow edge. The # is the end seam between boards, staggered so the tile repeats without a visible grid.",
+  "use": "the floor of the shelf scene"
 }

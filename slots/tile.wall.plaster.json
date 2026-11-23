@@ -1,8 +1,8 @@
 {
   "id": "tile.wall.plaster",
   "class": "tile",
-  "status": "open",
-  "blocks": "v0",
+  "status": "done",
+  "blocks": "app",
   "brief": "Interior wall, plaster over a dark wood base. Tiles horizontally. The bottom two pixel rows are the skirting, so the seam against the floor reads as trim rather than a hard edge.",
   "submissions": [],
   "sketch": [
@@ -23,5 +23,6 @@
     "################",
     "----------------"
   ],
-  "sketchNote": "Fourteen rows of plaster with a few lighter specks, then a two-row skirting board at the bottom. Only tiles left to right."
+  "sketchNote": "Fourteen rows of plaster with a few lighter specks, then a two-row skirting board at the bottom. Only tiles left to right.",
+  "use": "the wall of the shelf scene"
 }

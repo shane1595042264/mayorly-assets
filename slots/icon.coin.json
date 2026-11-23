@@ -1,8 +1,9 @@
 {
   "id": "icon.coin",
   "class": "icon",
-  "status": "open",
-  "blocks": "v0",
+  "status": "done",
+  "blocks": "app",
   "brief": "The coin. Shown in the HUD and beside every price, so it must read at 16px with no outline help.",
-  "submissions": []
+  "submissions": [],
+  "use": "every coin: the counter, the flights, the market prices"
 }

@@ -2,7 +2,7 @@
   "id": "icon.letter",
   "class": "icon",
   "status": "open",
-  "blocks": "v1",
+  "blocks": "today",
   "brief": "An unfiled entry, a folded letter with a small seal. Shown in the inbox list before the clerk has filed it.",
   "submissions": [],
   "sketch": [
@@ -23,5 +23,7 @@
     "................",
     "................"
   ],
-  "sketchNote": "An envelope seen from the front, flap folded down to a wax seal (the =) in the middle."
+  "sketchNote": "An envelope seen from the front, flap folded down to a wax seal (the =) in the middle.",
+  "use": "Capture's prompt, and an unfiled entry in the tray",
+  "order": 12
 }

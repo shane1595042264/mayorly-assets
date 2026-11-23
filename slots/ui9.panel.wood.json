@@ -1,8 +1,8 @@
 {
   "id": "ui9.panel.wood",
   "class": "ui9",
-  "status": "open",
-  "blocks": "v0",
+  "status": "done",
+  "blocks": "app",
   "brief": "Nine slice wooden panel, 8px corners. The centre 8x8 is what stretches, so keep it plain or it will smear.",
   "submissions": [],
   "sketch": [
@@ -31,5 +31,6 @@
     "#++++++++++++++++++++++#",
     "########################"
   ],
-  "sketchNote": "A nine-slice: the game cuts this 24x24 along the 8px lines into four corners (never stretch), four edges (stretch one way) and a centre (stretches both ways), then builds HUD chips and menus of any size from it. Outline, a light inner border, then a flat fill. The four = dots are MARKERS showing the corners of the 8x8 centre that stretches the most. Do not paint them. Keep everything inside that square one flat colour or it smears when stretched."
+  "sketchNote": "A nine-slice: the game cuts this 24x24 along the 8px lines into four corners (never stretch), four edges (stretch one way) and a centre (stretches both ways), then builds HUD chips and menus of any size from it. Outline, a light inner border, then a flat fill. The four = dots are MARKERS showing the corners of the 8x8 centre that stretches the most. Do not paint them. Keep everything inside that square one flat colour or it smears when stretched.",
+  "use": "the frames of the Keymap and What's New screens"
 }

@@ -1,0 +1,10 @@
+{
+  "id": "font.digits",
+  "class": "font",
+  "status": "open",
+  "blocks": "later",
+  "brief": "Your own numerals, 0 to 9, a colon and a dot, each 5x7 at the left of its 6x8 cell. Only if they read as fast as the font they replace.",
+  "use": "the timer, the pet's number, the coin count",
+  "submissions": [],
+  "order": 19
+}

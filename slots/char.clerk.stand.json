@@ -1,0 +1,10 @@
+{
+  "id": "char.clerk.stand",
+  "class": "char.stand",
+  "status": "open",
+  "blocks": "later",
+  "brief": "The clerk standing: the mute records-keeper, vest, spectacles, ink-stained cuffs.",
+  "use": "beside the shelf in the Shelf tab",
+  "submissions": [],
+  "order": 18
+}

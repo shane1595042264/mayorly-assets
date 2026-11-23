@@ -1,6 +1,6 @@
 # Mayorly assets: instructions for Claude
 
-This is the art library for Mayorly, a life OS in the shape of a cozy pixel town. The player is the mayor; tasks are journal entries; a mute clerk files them into ledgers; desk time earns tokens; tokens buy leisure, decorations and rooms. It starts with one room, the Mayor's Hall. One person draws everything by hand in Aseprite. Your job in this repo is to keep the loop tight, never to draw.
+This is the art library for Mayorly, a zero-friction desk for power users (mayorly-app: Electron and React, and an iPhone app). Since 2026-11-23 there is no town: art goes only where it replaces something already on screen in the app and says something at a glance (the pet's states, the coin in motion, icons for Mayorly's own things), and every sprite drawn for the town has a place there, written in its slot's `use`. A slot's `blocks` is `today`, `later` or `app` (drawn and in use); `order` ranks the queue. One person draws everything by hand in Aseprite (on this PC from the Steam library on D:, which `lib/open.mjs` finds). Your job in this repo is to keep the loop tight, never to draw. The app copies what it uses with `npm run art` there.
 
 ## Rules that are not negotiable
 
@@ -19,14 +19,14 @@ npm run done        validates, closes the GitHub issue, refreshes the tracker
 npm run next        shows the ranked queue without touching anything
 ```
 
-The queue ranking lives in `lib/queue.mjs`: first-playable (`blocks: v0`) before v1, easiest class first, started before untouched. Do not hand a beginner a character sheet first.
+The queue ranking lives in `lib/queue.mjs`: `today` before `later`, then each slot's `order` (the pet, the coin, then the icons), started before untouched.
 
 ## Where things are
 
 | | |
 |---|---|
-| `classes.json` | the nine art classes, exact canvas sizes, colour caps, anchors |
-| `slots/*.json` | one per sprite: brief, class, whether it blocks v0 |
+| `classes.json` | the art classes, exact canvas sizes, colour caps, anchors |
+| `slots/*.json` | one per sprite: brief, class, when (`today`, `later`, `app`), `use` (where it shows in the app), `order` |
 | `art/<slot-id>@1x.png` | the only place art goes, the only filename shape |
 | `palette/resurrect-64.*` | master palette, 64 colours, per-slot caps are drawn from it |
 | `.githooks/pre-commit` | validates staged art, unstages blank scaffolds, refreshes README |

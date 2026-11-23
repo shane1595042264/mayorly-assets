@@ -1,8 +1,8 @@
 {
   "id": "prop2x2.desk.idle",
   "class": "prop2x2",
-  "status": "open",
-  "blocks": "v0",
+  "status": "done",
+  "blocks": "app",
   "brief": "The mayor's desk, where all focused work happens. Heavy wood, an unlit lamp, a closed journal on top. This is the pomodoro station, so it has to look like somewhere you sit down on purpose.",
   "submissions": [],
   "sketch": [
@@ -39,5 +39,6 @@
     "##............................##",
     "##............................##"
   ],
-  "sketchNote": "Heavy desk from the front: an unlit lamp on the left, a closed journal on the top, two drawers with handles, legs to the anchor row."
+  "sketchNote": "Heavy desk from the front: an unlit lamp on the left, a closed journal on the top, two drawers with handles, legs to the anchor row.",
+  "use": "the desk in the shelf scene, and the empty Flow"
 }
