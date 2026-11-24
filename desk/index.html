@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Art desk</title>
+  <link rel="stylesheet" href="/desk.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <h1>Art desk</h1>
+      <span class="dim">mayorly-assets</span>
+    </div>
+    <div class="tally" id="tally"></div>
+    <div class="status">
+      <span class="pill" id="aseprite"></span>
+      <span class="pill" id="app"></span>
+      <span class="live" id="live"><i></i><span>connecting</span></span>
+    </div>
+  </header>
+
+  <main class="desk">
+    <section class="list" id="list" aria-label="Every slot"></section>
+    <aside class="detail" id="detail" aria-live="polite"></aside>
+  </main>
+
+  <p class="keys dim">j k or the arrows to move, Enter to start or open in Aseprite, d to mark done</p>
+  <div class="toast" id="toast" role="status"></div>
+  <script type="module" src="/desk.js"></script>
+</body>
+</html>

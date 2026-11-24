@@ -12,6 +12,8 @@ This is the art library for Mayorly, a zero-friction desk for power users (mayor
 ## The loop the artist uses
 
 ```
+npm run desk        the art desk: every slot on one page at 127.0.0.1:4780, live;
+                    Start working makes a slot's canvas and opens it in Aseprite
 npm run scaffold    asks "did you finish X?" about any passing-but-unclosed slot,
                     marks it done if yes, then creates the next slot's canvas and opens it
 npm run watch       validates on every save and names the fix for any failure
@@ -34,6 +36,7 @@ The queue ranking lives in `lib/queue.mjs`: `today` before `later`, then each sl
 
 ## Things that look like bugs and are not
 
+- **The art desk opens Aseprite through Explorer on Windows.** `scripts/desk.mjs` writes a one-line `.desk/open-<time>.vbs` and hands it to `explorer.exe`, so Aseprite is never a child of the desk: a terminal inside a packaged app (the Claude desktop app's) gives its children a private copy of AppData, and Aseprite would come up without the founder's settings and palettes. Explorer's exit code is ignored. The desk's Mark done writes `status: done` and `blocks: app` into the slot and closes its issue only when `gh` answers; Reopen puts it back as `today`.
 - **The camera shows two sides, top and front, never a side face.** Vertical edges stay vertical. Isometric is wrong. See STANDARD.md, Camera and projection.
 - **Scaffolds are indexed PNGs with the palette baked in.** Colour type 3 with a tRNS transparent index 0 is the preferred format, not a mistake; the validator accepts 3 and 6 and rejects 2. Do not "fix" scaffold back to RGBA.
 - **A ground tile with no transparency is correct.** `tile` and `tile.anim` carry `opaque: true` in `classes.json`, which suppresses the transparency advisory.

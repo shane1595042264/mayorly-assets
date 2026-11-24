@@ -11,3 +11,6 @@ sheet.html
 
 # rendered reference sketches, pictures of the brief, never art
 sketches/
+
+# the art desk's launch files for Aseprite (scripts/desk.mjs)
+.desk/

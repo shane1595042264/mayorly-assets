@@ -94,7 +94,7 @@ Aseprite specifics, including the three settings to get right once: **[ASEPRITE.
 | &#9744; | `pet.tomato.idle` | **24&times;24** | 1 | 16 | **today** | the pet while the desk is idle | not started |
 | &#9744; | `pet.tomato.rest` | **24&times;24** | 1 | 16 | **today** | the pet during a rest | not started |
 | &#9744; | `pet.tomato.work` | **24&times;48** | 2 stacked | 16 | **today** | the pet while a focus block runs | not started |
-| &#9744; | `prop4x3.ledger.open` | **64&times;48** | 1 | 24 | **today** | the Shelf tab: the ledger you point at or pick, out of the shelf and open beside it, with its name and numbers written on the pages | not started |
+| &#9744; | `prop4x3.ledger.open` | **64&times;48** | 1 | 24 | **today** | the Shelf tab: the ledger you point at or pick, out of the shelf and open beside it, with its name and numbers written on the pages | canvas ready, empty |
 <!-- STATUS:END -->
 
 ## The app is not waiting for you
@@ -102,6 +102,18 @@ Aseprite specifics, including the three settings to get right once: **[ASEPRITE.
 Every slot the app shows falls back to what it showed before (the plain tomato, the stock icon) until its PNG exists, so you never draw ahead of the code or code ahead of the drawing. In the app, `npm run art` copies what is in `art/` across, and `npm run art -- --watch` keeps doing it on every save while `localhost:5199/?art` shows each sprite where it lives, at its real scale. The issues, the tracker, `tf done`, placeholders, the manifest and the Release publishing were for outside artists and a game that fetched its art; drawing alone, skip them.
 
 ---
+
+## The art desk
+
+```bash
+npm run desk       # or tf desk: http://127.0.0.1:4780, opened in your browser
+```
+
+Every slot on one page, live: what you are drawing now, what is up next in the order to draw it, what can wait, what is done. Pick one and you see your drawing beside its sketch at a whole scale, the brief, where it shows in the app, and every check the validator makes, red for what blocks and amber for advice. Each save in Aseprite lands on the page within a moment, re-checked.
+
+**Start working** makes the canvas (the right size, indexed, the palette built in) and opens it in Aseprite with the sketch as a second tab, ready to draw. **Open in Aseprite** does the same for one you have started. **Mark done** appears once it passes. Keys: j and k (or the arrows) to move, Enter to open, d to mark done.
+
+With the app checked out beside this repo, the desk also runs the app's `npm run art -- --watch`, so every passing save is in the app straight away (`--no-app` turns that off). It replaces `tf scaffold` and `tf watch` while you draw alone; they still work.
 
 ## The four commands
 

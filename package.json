@@ -6,6 +6,7 @@
     "node": ">=18"
   },
   "scripts": {
+    "desk": "node scripts/desk.mjs",
     "next": "node scripts/next.mjs",
     "scaffold": "node scripts/scaffold.mjs",
     "watch": "node scripts/watch.mjs",

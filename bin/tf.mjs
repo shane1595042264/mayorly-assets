@@ -13,12 +13,13 @@ const CMDS = {
   scaffold: 'scaffold.mjs',  brief: 'brief.mjs',   sketch: 'sketch.mjs',   watch: 'watch.mjs',
   done: 'done.mjs',          next: 'next.mjs',     check: 'validate-art.mjs', sheet: 'sheet.mjs',
   status: 'readme-status.mjs', issues: 'make-issues.mjs', placeholders: 'placeholders.mjs',
-  manifest: 'build-manifest.mjs', setup: 'setup.mjs', test: 'selftest.mjs',
+  manifest: 'build-manifest.mjs', setup: 'setup.mjs', test: 'selftest.mjs', desk: 'desk.mjs',
 };
 const [verb, ...rest] = process.argv.slice(2);
 if (!verb || verb === 'help' || !CMDS[verb]) {
   if (verb && verb !== 'help') console.error(`tf: no such command "${verb}"\n`);
   console.log(`tf <command>\n
+  desk              every slot on one page, live; Start working opens one in Aseprite
   scaffold [slot]   next canvas, asks first if you finished the current one
   brief    [slot]   what it is, the brief, and the sketch
   sketch   [slot]   the same, plus a PNG opened beside your editor
