@@ -56,7 +56,7 @@ Aseprite specifics, including the three settings to get right once: **[ASEPRITE.
 ## What to draw
 
 <!-- STATUS:START -->
-**15 of 34 drawn. 16 of today's still to draw.**
+**15 of 35 drawn. 17 of today's still to draw.**
 
 | | slot | canvas | frames | max colours | when | where it shows in the app | state |
 |---|---|---|---|---|---|---|---|
@@ -94,6 +94,7 @@ Aseprite specifics, including the three settings to get right once: **[ASEPRITE.
 | &#9744; | `pet.tomato.idle` | **24&times;24** | 1 | 16 | **today** | the pet while the desk is idle | not started |
 | &#9744; | `pet.tomato.rest` | **24&times;24** | 1 | 16 | **today** | the pet during a rest | not started |
 | &#9744; | `pet.tomato.work` | **24&times;48** | 2 stacked | 16 | **today** | the pet while a focus block runs | not started |
+| &#9744; | `prop4x3.ledger.open` | **64&times;48** | 1 | 24 | **today** | the Shelf tab: the ledger you point at or pick, out of the shelf and open beside it, with its name and numbers written on the pages | not started |
 <!-- STATUS:END -->
 
 ## The app is not waiting for you

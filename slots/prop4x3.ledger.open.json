@@ -1,0 +1,83 @@
+{
+  "id": "prop4x3.ledger.open",
+  "class": "prop4x3",
+  "status": "open",
+  "blocks": "today",
+  "order": 0,
+  "brief": "One of your ledgers taken off the shelf and held open toward you: the same book as icon.ledger.closed, big now, its cover around two facing pages with the gutter down the middle. Four tiles wide, three tall. In the Shelf tab the ledger you point at, or the one the keys are on, comes off the shelf and shows open like this beside it, and the app writes that ledger's name, its criterion and its numbers on the two pages in dark ink. So the two page areas stay plain light paper; everything else, the cover, its corners and stitching, the page edges stacked underneath, a ribbon, is yours.",
+  "submissions": [],
+  "bays": {
+    "holds": "the ledger's words",
+    "spine": [
+      22,
+      30
+    ],
+    "perBay": 1,
+    "rects": [
+      [
+        5,
+        6,
+        24,
+        33
+      ],
+      [
+        35,
+        6,
+        24,
+        33
+      ]
+    ]
+  },
+  "sketch": [
+    "................................................................",
+    "................................................................",
+    "################################################################",
+    "#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo#",
+    "#oo++++++++++++++++++++++++++++--++++++++++++++++++++++++++++oo#",
+    "#oo++++++++++++++++++++++++++++--++++++++++++++++++++++++++++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++========================++--++========================++oo#",
+    "#oo++++++++++++++++++++++++++++--++++++++++++++++++++++++++++oo#",
+    "#oo++++++++++++++++++++++++++++--++++++++++++++++++++++++++++oo#",
+    "#oo++++++++++++++++++++++++++++--++++++++++++++++++++++++++++oo#",
+    "#oo++++++++++++++++++++++++++++--++++++++++++++++++++++++++++oo#",
+    "#oo++++++++++++++++++++++++++++--++++++++++++++++++++++++++++oo#",
+    "#oo----------------------------oo----------------------------oo#",
+    "#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo#",
+    "#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo#",
+    "################################################################"
+  ],
+  "sketchNote": "A layout, not a design. The yellow blocks are the two pages the game writes on (24 wide by 33 tall each, from (5,6) and (35,6)): keep each one plain light paper, fully opaque, at most 3 colours, so dark words read on it. Everything around them is yours: the cover (o), the paper's edges and the gutter (+ and -), the stack of pages under them. Want a fatter cover or a curl at the page corners? Move or shrink the pages in this slot file, keep each at least 24 by 31, and the app follows.",
+  "use": "the Shelf tab: the ledger you point at or pick, out of the shelf and open beside it, with its name and numbers written on the pages"
+}

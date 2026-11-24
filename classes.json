@@ -35,6 +35,14 @@
       "anchor": "bottom centre (16,63)",
       "use": "the ledger shelf in the Shelf tab"
     },
+    "prop4x3": {
+      "w": 64,
+      "h": 48,
+      "frames": 1,
+      "colors": 24,
+      "anchor": "bottom centre (32,47)",
+      "use": "a ledger lying open in the Shelf tab"
+    },
     "icon": {
       "w": 16,
       "h": 16,
