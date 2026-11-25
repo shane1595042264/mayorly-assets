@@ -1,6 +1,13 @@
 {
   "id": "pet.tomato.hold",
   "class": "pet",
+  "base": {
+    "from": "icon.tomato",
+    "at": [
+      4,
+      4
+    ]
+  },
   "status": "open",
   "blocks": "today",
   "brief": "Paused and waiting: a hand up, a small sign. Patient, not sad: nothing in Mayorly punishes a hold.",

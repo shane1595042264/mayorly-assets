@@ -12,6 +12,7 @@
 import { readFileSync, readdirSync, existsSync, watch, statSync } from 'fs';
 import { basename } from 'path';
 import { validate, canvasOf, isUntouched } from '../lib/validate.mjs';
+import { isBaseOnly } from '../lib/base.mjs';
 import { loadPalette } from '../lib/validate.mjs';
 
 const { classes } = JSON.parse(readFileSync('classes.json', 'utf8'));
@@ -47,7 +48,9 @@ async function check(file) {
   if (!bytes) return;
 
   const r = await validate(new Uint8Array(bytes), { ...cls, id, masterPalette: MASTER, bays: slot.bays });
-  if (r.ok) {
+  if (r.ok && slot.base && await isBaseOnly(bytes, slot, cls)) {
+    console.log(`${time()} ${D('....')} ${B(id)}  ${D(`${slot.base.from} placed, waiting for you`)}`);
+  } else if (r.ok) {
     const cols = r.palette ? D(`  ${r.palette.length}/${cls.colors} colours`) : '';
     console.log(`${time()} ${G('PASS')} ${B(id)}${cols}`);
     for (const c of r.warnings) {

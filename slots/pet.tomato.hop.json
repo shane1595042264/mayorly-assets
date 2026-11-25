@@ -1,6 +1,13 @@
 {
   "id": "pet.tomato.hop",
   "class": "pet",
+  "base": {
+    "from": "icon.tomato",
+    "at": [
+      4,
+      4
+    ]
+  },
   "status": "open",
   "blocks": "today",
   "brief": "The top of the hover hop: stretched up a pixel, a happy face.",

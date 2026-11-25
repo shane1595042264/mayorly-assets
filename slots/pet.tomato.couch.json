@@ -1,6 +1,13 @@
 {
   "id": "pet.tomato.couch",
   "class": "pet",
+  "base": {
+    "from": "icon.tomato",
+    "at": [
+      4,
+      4
+    ]
+  },
   "status": "open",
   "blocks": "today",
   "brief": "Couch time: chips, a controller, a purple TV glow. The original spec had the craftsman on the couch with chips and the TV on; this is the tomato's turn.",

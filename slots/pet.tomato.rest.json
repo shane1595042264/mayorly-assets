@@ -1,6 +1,13 @@
 {
   "id": "pet.tomato.rest",
   "class": "pet",
+  "base": {
+    "from": "icon.tomato",
+    "at": [
+      4,
+      4
+    ]
+  },
   "status": "open",
   "blocks": "today",
   "brief": "A breather: a tea cup, a stretch. Calm and pleased, never tired or sad.",

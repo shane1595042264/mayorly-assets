@@ -5,6 +5,7 @@
  */
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs';
 import { validate, canvasOf, isUntouched } from '../lib/validate.mjs';
+import { isBaseOnly } from '../lib/base.mjs';
 
 const { classes } = JSON.parse(readFileSync('classes.json', 'utf8'));
 const slots = readdirSync('slots').filter(f => f.endsWith('.json'))
@@ -18,8 +19,10 @@ for (const s of slots) {
   const file = `art/${s.id}@1x.png`;
   let mark = '&#9744;', note = 'not started';
   if (existsSync(file)) {
-    const r = await validate(new Uint8Array(readFileSync(file)), { ...cls, id: s.id, bays: s.bays });
-    if (r.ok) { mark = '&#9745;'; note = `${r.palette.length}/${cls.colors} colours`; done++; }
+    const bytes = new Uint8Array(readFileSync(file));
+    const r = await validate(bytes, { ...cls, id: s.id, bays: s.bays });
+    if (r.ok && s.base && await isBaseOnly(bytes, s, cls)) note = `canvas ready, ${s.base.from} placed`;
+    else if (r.ok) { mark = '&#9745;'; note = `${r.palette.length}/${cls.colors} colours`; done++; }
     else if (isUntouched(r)) note = 'canvas ready, empty';
     else note = '**fix:** ' + r.blocking.map(c => c.label.toLowerCase()).join(', ');
   }

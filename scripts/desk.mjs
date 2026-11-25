@@ -16,8 +16,8 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, wat
 import { execFile, spawn } from 'node:child_process';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { canvasOf, loadPalette, validate } from '../lib/validate.mjs';
-import { blankIndexed } from '../lib/png.mjs';
+import { canvasOf, isUntouched, loadPalette, validate } from '../lib/validate.mjs';
+import { isBaseOnly, newCanvas } from '../lib/base.mjs';
 import { loadQueue } from '../lib/queue.mjs';
 import { findAseprite, openFile, openInAseprite } from '../lib/open.mjs';
 import { renderSketch } from '../lib/sketch.mjs';
@@ -69,6 +69,7 @@ async function snapshot() {
       use: s.use ?? '',
       sketchNote: s.sketchNote ?? null,
       sketch: !!s.sketch,
+      base: s.base?.from ?? null,
       bays: s.bays ? { holds: s.bays.holds, rects: s.bays.rects } : null,
       mtime: has ? Math.round(statSync(file).mtimeMs) : 0,
       saved: saved.get(s.id) ?? null,
@@ -148,16 +149,24 @@ function openAseprite(files) {
   return true;
 }
 
-/** Make the canvas if there is none (indexed, the palette built in), draw the sketch, open both. */
+/**
+ * Make the canvas if there is none (indexed, the palette built in, its base placed: the tomato for a
+ * pet state), draw the sketch, open both. An empty canvas made before the slot had a base is made
+ * again with it; anything with a pixel drawn on it is never touched.
+ */
 async function start(id) {
   const found = slotOf(id);
   if (!found) return { status: 404, body: { error: `no slot "${id}"` } };
   const { slot, classes, cls, file } = found;
   let created = false;
-  if (!existsSync(file)) {
-    const { w, h } = canvasOf(cls);
+  const empty = async () => {
+    if (!slot.base) return false;
+    const bytes = new Uint8Array(readFileSync(file));
+    return isUntouched(await validate(bytes, { ...cls, id, bays: slot.bays })) && !(await isBaseOnly(bytes, slot, cls));
+  };
+  if (!existsSync(file) || (await empty())) {
     const pal = [...loadPalette(readFileSync('palette/resurrect-64.hex', 'utf8'))];
-    writeFileSync(file, await blankIndexed(w, h, pal));
+    writeFileSync(file, await newCanvas(slot, cls, pal));
     created = true;
   }
   const ref = slot.sketch ? await renderSketch(slot, classes) : null;

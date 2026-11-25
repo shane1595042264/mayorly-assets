@@ -1,6 +1,13 @@
 {
   "id": "pet.tomato.held",
   "class": "pet",
+  "base": {
+    "from": "icon.tomato",
+    "at": [
+      4,
+      4
+    ]
+  },
   "status": "open",
   "blocks": "today",
   "brief": "Dangling while you drag it: arms up, legs down.",

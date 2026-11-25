@@ -1,6 +1,13 @@
 {
   "id": "pet.tomato.work",
   "class": "pet.anim",
+  "base": {
+    "from": "icon.tomato",
+    "at": [
+      4,
+      4
+    ]
+  },
   "status": "open",
   "blocks": "today",
   "brief": "Working: the tomato with its arms at it, a pencil or typing. Two frames that loop about twice a second. It replaces the breathing the pet does today while a block runs.",

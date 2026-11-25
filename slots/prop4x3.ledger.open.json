@@ -1,9 +1,8 @@
 {
   "id": "prop4x3.ledger.open",
   "class": "prop4x3",
-  "status": "open",
-  "blocks": "today",
-  "order": 0,
+  "status": "done",
+  "blocks": "app",
   "brief": "One of your ledgers taken off the shelf and held open toward you: the same book as icon.ledger.closed, big now, its cover around two facing pages with the gutter down the middle. Four tiles wide, three tall. In the Shelf tab the ledger you point at, or the one the keys are on, comes off the shelf and shows open like this beside it, and the app writes that ledger's name, its criterion and its numbers on the two pages in dark ink. So the two page areas stay plain light paper; everything else, the cover, its corners and stitching, the page edges stacked underneath, a ribbon, is yours.",
   "submissions": [],
   "bays": {

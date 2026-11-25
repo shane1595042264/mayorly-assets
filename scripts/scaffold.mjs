@@ -9,7 +9,7 @@
  */
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { createInterface } from 'node:readline/promises';
-import { blankIndexed } from '../lib/png.mjs';
+import { newCanvas } from '../lib/base.mjs';
 import { loadPalette } from '../lib/validate.mjs';
 import { canvasOf } from '../lib/validate.mjs';
 import { loadQueue } from '../lib/queue.mjs';
@@ -74,8 +74,8 @@ else {
   // Indexed, with Resurrect 64 baked in: Aseprite opens it in Indexed mode with
   // the palette loaded. No "Load Palette" step, on any machine.
   const pal = [...loadPalette(readFileSync('palette/resurrect-64.hex', 'utf8'))];
-  writeFileSync(file, await blankIndexed(w, h, pal));
-  console.log(`${file}  ${w}x${h}, transparent, indexed with the palette built in`);
+  writeFileSync(file, await newCanvas(slot, cls, pal));
+  console.log(`${file}  ${w}x${h}, indexed with the palette built in${slot.base ? `, ${slot.base.from} placed to draw from` : ', transparent'}`);
 }
 
 // The brief and the sketch, right here, so you can start without another command.

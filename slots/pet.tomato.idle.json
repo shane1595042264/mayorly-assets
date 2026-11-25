@@ -1,6 +1,13 @@
 {
   "id": "pet.tomato.idle",
   "class": "pet",
+  "base": {
+    "from": "icon.tomato",
+    "at": [
+      4,
+      4
+    ]
+  },
   "status": "open",
   "blocks": "today",
   "brief": "Off duty: dozing, feet up. Never wilting: no dying pet.",

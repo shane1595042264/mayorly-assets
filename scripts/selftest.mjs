@@ -100,7 +100,38 @@ await t('a bay too small for its spines is rejected',
   await png(32, 64, wood), { ...SHELF, bays: { ...SHELF.bays, rects: [[3, 7, 20, 15]] } }, false, 'bays.fit');
 await t('a blank canvas with bays is only blank, not broken',
   await png(32, 64, () => [0, 0, 0, 0]), SHELF, false, 'content.notBlank');
+{
+  const { isUntouched } = await import('../lib/validate.mjs');
+  const r = await validate(await encodeIndexedPNG(16, 64, [0x2e222f], () => 0), STRIP);
+  const ok = isUntouched(r);
+  console.log(`${ok ? 'ok   ' : 'FAIL '} a blank strip is untouched, not broken`);
+  ok ? pass++ : fail++;
+}
 await t('a non-png is rejected', new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8, 9]), SPEC, false, 'png.signature');
+
+// A pet state's new canvas starts from the tomato: placed in every frame, it passes but is not started.
+{
+  const { readFileSync, existsSync } = await import('node:fs');
+  const { newCanvas, isBaseOnly } = await import('../lib/base.mjs');
+  const { parsePNG, loadPalette } = await import('../lib/validate.mjs');
+  if (existsSync('art/icon.tomato@1x.png')) {
+    const { classes } = JSON.parse(readFileSync('classes.json', 'utf8'));
+    const slot = { id: 'pet.test', class: 'pet.anim', base: { from: 'icon.tomato', at: [4, 4] } };
+    const cls = classes[slot.class];
+    const canvas = await newCanvas(slot, cls, [...loadPalette(readFileSync('palette/resurrect-64.hex', 'utf8'))]);
+    const tomato = await parsePNG(new Uint8Array(readFileSync('art/icon.tomato@1x.png')));
+    const P = await parsePNG(canvas);
+    const placed = [0, 1].every((f) => [...Array(256).keys()].every((i) => {
+      const x = i % 16, y = (i / 16) | 0, a = i * 4, b = ((f * 24 + 4 + y) * 24 + 4 + x) * 4;
+      return !tomato.px[a + 3] || [0, 1, 2, 3].every((c) => tomato.px[a + c] === P.px[b + c]);
+    }));
+    const px = P.px.slice(); px[3] = 255;
+    const drawnOn = await png(P.meta.w, P.meta.h, (x, y) => [...px.subarray((y * P.meta.w + x) * 4, (y * P.meta.w + x) * 4 + 4)]);
+    const ok = placed && P.meta.color === 3 && await isBaseOnly(canvas, slot, cls) && !(await isBaseOnly(drawnOn, slot, cls));
+    console.log(`${ok ? 'ok   ' : 'FAIL '} a pet canvas starts from the tomato, and counts as started only once drawn on`);
+    ok ? pass++ : fail++;
+  }
+}
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

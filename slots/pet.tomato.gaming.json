@@ -1,6 +1,13 @@
 {
   "id": "pet.tomato.gaming",
   "class": "pet",
+  "base": {
+    "from": "icon.tomato",
+    "at": [
+      4,
+      4
+    ]
+  },
   "status": "done",
   "blocks": "app",
   "brief": "Gaming mode: the tomato in a headset.",

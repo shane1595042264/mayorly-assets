@@ -15,7 +15,7 @@ const seenSave = new Map();
 
 const PHASE = {
   todo: ['to draw', 'todo'],
-  blank: ['blank canvas', 'blank'],
+  blank: ['ready to draw', 'blank'],
   drawing: ['not passing yet', 'bad'],
   passing: ['passes', 'passing'],
   done: ['done', 'done'],
@@ -58,7 +58,7 @@ function primary(s) {
 
 function rowHtml(s, n) {
   const [label, cls] = PHASE[s.phase];
-  const thumb = s.mtime && s.phase !== 'blank' ? pic(artUrl(s), s, 64).html : s.sketch ? pic(`/sketch/${s.id}.png`, s, 64).html : `<span class="none">${s.w}x${s.h}</span>`;
+  const thumb = s.mtime && (s.phase !== 'blank' || s.base) ? pic(artUrl(s), s, 64).html : s.sketch ? pic(`/sketch/${s.id}.png`, s, 64).html : `<span class="none">${s.w}x${s.h}</span>`;
   const p = primary(s);
   const bad = s.phase === 'drawing' && s.checks ? `${s.checks.blocking.length} to fix` : label;
   return `
@@ -94,14 +94,16 @@ function renderList() {
 function savedLine(s) {
   if (!s.mtime) return '<span class="saved">no canvas yet</span>';
   const at = new Date(s.saved ?? s.mtime).toTimeString().slice(0, 8);
-  if (s.phase === 'blank') return `<span class="saved">blank, made ${at}</span>`;
+  if (s.phase === 'blank') return `<span class="saved">${s.base ? `${esc(s.base)} placed` : 'blank'}, made ${at}</span>`;
   const ok = s.checks?.ok;
   return `<span class="saved ${ok ? 'ok' : 'bad'}">saved ${at}, ${ok ? 'passes' : `${s.checks?.blocking.length ?? 0} to fix`}</span>`;
 }
 
 function checksHtml(s) {
-  if (s.phase === 'todo') return '<p>Nothing drawn yet. Start working makes the canvas, the right size with the palette built in, and opens it beside its sketch.</p>';
-  if (s.phase === 'blank') return '<p>An empty canvas, waiting for you. Every save is checked here as soon as it lands.</p>';
+  if (s.phase === 'todo') return `<p>Nothing drawn yet. Start working makes the canvas, the right size with the palette built in${s.base ? `, with ${esc(s.base)} already placed to draw from` : ''}, and opens it beside its sketch.</p>`;
+  if (s.phase === 'blank') return s.base
+    ? `<p>${esc(s.base)} is placed, nothing drawn on it yet. Draw over it; every save is checked here as soon as it lands.</p>`
+    : '<p>An empty canvas, waiting for you. Every save is checked here as soon as it lands.</p>';
   const c = s.checks;
   const li = (x, cls) => `<li class="${cls}"><b>${esc(x.label)}</b><span class="v">${esc(x.value)}</span>${x.fix ? `<span class="fix">${esc(x.fix)}</span>` : ''}</li>`;
   const used = c.used != null ? `${c.used} of ${s.colors} colours` : '';
@@ -148,6 +150,7 @@ function renderDetail() {
       ${sketch ? `<div class="pane"><div class="pane-label"><span>The layout sketch</span>${s.bays ? `<label class="toggle" title="Outline the areas the app draws on"><input type="checkbox" id="bays" ${showBays ? 'checked' : ''}> areas</label>` : ''}</div><div class="pane-box">${sketch.html}</div></div>` : ''}
     </div>
     <div class="d-section"><h3>Where it shows</h3><p>${esc(s.use)}</p></div>
+    ${s.base ? `<div class="d-section"><h3>Starts from</h3><p>${esc(s.base)}, your drawing, placed on every new canvas where it sits in this one, so you draw over it.</p></div>` : ''}
     <div class="d-section"><h3>The brief</h3><p>${esc(s.brief)}</p></div>
     ${s.sketchNote ? `<div class="d-section"><h3>About the sketch</h3><p>${esc(s.sketchNote)}</p></div>` : ''}
     ${bays}
